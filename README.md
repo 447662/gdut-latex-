@@ -21,10 +21,11 @@ git clone https://github.com/447662/gdut-latex-.git
 
 #### 2.4 修改论文参考文献
 1. 在cankaowenxian.bib文件中，添加参考文献条目，包括作者、标题、出版社、出版日期等。
-2. 在1.tex文件中，使用`\cite{}`指令引用参考文献，例如`\cite{zhang2019deep}`。
+2. 在1.tex文件中，使用`\cite{}`指令引用参考文献，例如\cite{zhang2019deep}
 
 #### 2.5 修改论文格式
 1. 在1.tex文件中用latex指令修改论文格式，包括字体、字号、行间距等。
 
 2. 运行1.tex文件，即可生成论文。
+
 
