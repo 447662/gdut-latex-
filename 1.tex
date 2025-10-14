@@ -1,0 +1,224 @@
+%\documentclass{ctexart}
+\documentclass{article}
+\setlength{\parindent}{2em} % 设置段落首行缩进为2个汉字的宽度
+%\setlength{\parskip}{0.5\baselineskip}
+%导言区
+\usepackage[UTF8, fontset=windows]{ctex}
+% 使用微软雅黑，提供可用的粗体/斜体字形，避免 SimSun 缺少粗体导致的警告
+\setCJKmainfont{Microsoft YaHei}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage{float}
+\usepackage{abstract}
+\renewcommand{\abstractname}{摘要} % 修改摘要标题
+\renewcommand{\abstractnamefont}{\bfseries\Large} % 修改摘要标题字体
+\renewcommand{\abstracttextfont}{\normalfont} % 修改摘要正文字体
+\usepackage{threeparttable}
+\usepackage{geometry}
+\usepackage{caption}
+\usepackage{placeins}
+% 交由 ctex 自动管理中文字体（避免与 xeCJK 重复设置导致的警告）
+\geometry{a4paper, margin=2cm}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, positioning, shapes.geometric}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage[skins]{tcolorbox}
+\usepackage{listings}
+\usepackage{xcolor}
+\lstset{
+    basicstyle=\ttfamily,
+    keywordstyle=\color{blue},
+    stringstyle=\color{red},
+    commentstyle=\color{green!50!black},
+    breaklines=true,
+    numbers=left,
+    numberfirstline=true,
+    numbersep=5pt,
+    stepnumber=1,
+}
+\usepackage{pdfpages}
+\usepackage{xcolor}
+\usepackage{array,tabularx}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{hyperref}
+\usepackage{caption}
+\renewcommand{\lstlistingname}{代码示例}
+\usepackage{colortbl}
+\usepackage{subcaption}
+\usepackage{longtable}
+\usepackage{sectsty}
+\sectionfont{\centering}
+\usepackage{color}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows}
+\tikzstyle{startstop} = [rectangle,rounded corners, minimum width=3cm,minimum height=1cm,draw=black,fill=red!30]
+\tikzstyle{io} = [trapezium, trapezium left angle = 70,trapezium right angle=110,minimum width=3cm,minimum height=1cm,text centered,draw=black,fill=blue!30]
+\tikzstyle{process} = [rectangle,minimum width=3cm,minimum height=1cm,text centered,text width =3cm,draw=black,fill=orange!30]
+\tikzstyle{decision} = [diamond,minimum width=3cm,minimum height=1cm,text centered,draw=black,fill=green!30]
+\tikzstyle{arrow} = [thick,->,>=stealth]
+\newcommand{\upcite}[1]{\textsuperscript{\textsuperscript{\cite{#1}}}}
+% 页面布局
+\geometry{top=25mm,bottom=25mm,left=25mm,right=25mm}
+\renewcommand*{\baselinestretch}{1.38}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\lstset{
+    language=Python,
+    numbers=left,
+    breaklines=true,
+    basicstyle=\ttfamily,
+    keywordstyle=\color{blue},
+    stringstyle=\color{red},
+    commentstyle=\color{green},
+}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\lstset{
+    basicstyle=\ttfamily\small,
+    breaklines=true,
+    frame=single,
+    rulecolor=\color{lightgray},
+    backgroundcolor=\color{white}
+}
+\newtcolorbox{notebox}{
+    colback=gray!10,
+    colframe=gray!30,
+    boxrule=0.5pt,
+    left=2pt, right=2pt, top=2pt, bottom=2pt
+}
+% 定义跨层通信流程图样式
+\tikzset{
+    commnode/.style = {
+        rectangle, rounded corners, 
+        minimum height=1cm, text centered,
+        draw=black, fill=white
+    },
+    commarrow/.style = {
+        -{Stealth[scale=1.2]},
+        thick
+    }
+}
+%导言区
+\begin{document}
+% 插入PDF封面页面（第1页）
+% 若封面 PDF 不存在则跳过，不阻断编译
+\IfFileExists{1_1_课程论文封皮.pdf}{\includepdf[pages=1]{1_1_课程论文封皮.pdf}}{}
+\newpage
+\pagenumbering{arabic}
+{
+\Large
+\tableofcontents
+}
+\newpage
+\pagenumbering{arabic}
+\renewcommand{\abstractname}{引言}
+\begin{abstract}
+\addcontentsline{toc}{section}{引言}
+1\par
+\textbf{关键词：}{1\quad 2\quad }
+\end{abstract} 
+
+\section{项目背景与功能}%\cite{chinastor} \par
+\subsection{项目背景} 
+\subsubsection{背景}
+1\cite{DBLP:journals/corr/abs-2010-11929}
+\begin{itemize}
+    \item 1
+    \item 2
+    \item 3
+    \item 4
+\end{itemize}\par
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}{0.9\linewidth}
+        \centering
+        % 若图片不存在则用占位框代替，避免报错
+        \IfFileExists{640.jpg}{\includegraphics[width=0.6\linewidth]{640.jpg}}{\fbox{缺少图片 640.jpg}}
+\end{subfigure}
+    \caption{\small 罗翔老师}
+\end{figure}
+\subsubsection{现状}
+2
+\subsection{功能}
+3
+\begin{enumerate}
+    \item \textbf{1}1
+    \item \textbf{2}2
+    \begin{enumerate}
+        \item \textbf{2.1}1
+        \item \textbf{2.2}2
+\end{enumerate}
+
+% 结束外层枚举环境（原先遗漏了 \end{enumerate}）
+\end{enumerate}
+
+\begin{tabularx}{\textwidth}{lll}
+    \toprule
+    \textbf{1} & \textbf{2} & \textbf{3} \\
+    \midrule
+    \textbf{1} 
+    & 2 
+    & \begin{minipage}[t]{\hsize}
+        \begin{itemize}[nosep, leftmargin=*]
+            \item \texttt{3.1}: 1
+            \item \texttt{3.2}: 2
+            \item \texttt{3.3}: 3
+        \end{itemize}
+      \end{minipage} \\
+    \addlinespace
+    \textbf{2} 
+    & 3
+    & \begin{minipage}[t]{\hsize}
+         \begin{itemize}[nosep, leftmargin=*]
+            \item \texttt{4.1}: 1
+            \item \texttt{4.2}: 2
+            \item \texttt{4.3}: 3
+        \end{itemize}
+      \end{minipage} \\
+    \bottomrule
+\end{tabularx}\par
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}{0.5\linewidth}
+        \centering
+        \IfFileExists{640.jpg}{\includegraphics[width=1\linewidth]{640.jpg}}{\fbox{缺少图片 640.jpg}}
+        \caption{正面}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.4\textwidth}
+        \centering
+        \IfFileExists{640.jpg}{\rotatebox{90}{\includegraphics[width=1\linewidth]{640.jpg}}}{\fbox{缺少图片 640.jpg}}
+        \caption{背面}
+    \end{subfigure}
+    \caption{\small 2}
+\end{figure}
+
+
+\[ A = k \cdot X + C \]
+
+\begin{equation}
+    A = k \cdot X + C
+\end{equation}
+% 修正 lstlisting 可选参数语法（合并为一个可选参数列表）
+\begin{lstlisting}[language=Python, caption={1}]
+    # 1
+class 1(L2):
+    # 新的构造函数
+    def __init__(self):
+        super(1, self).__init__()
+        super().__init__()
+\end{lstlisting}
+
+\nocite{*}
+\bibliographystyle{plain}
+\bibliography{cankaowenxian}
+
+
+\end{document} 
