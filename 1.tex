@@ -1,11 +1,14 @@
 %\documentclass{ctexart}
-\documentclass{article}
+\documentclass[12pt]{article}
 \setlength{\parindent}{2em} % 设置段落首行缩进为2个汉字的宽度
 %\setlength{\parskip}{0.5\baselineskip}
 %导言区
 \usepackage[UTF8, fontset=windows]{ctex}
-% 使用微软雅黑，提供可用的粗体/斜体字形，避免 SimSun 缺少粗体导致的警告
-\setCJKmainfont{Microsoft YaHei}
+% 字体设置：英文 Times New Roman；中文 宋体/黑体
+\usepackage{fontspec}
+\setmainfont{Times New Roman}
+\setCJKmainfont[BoldFont=SimHei]{SimSun}
+\setCJKsansfont{SimHei}
 \usepackage{graphicx}
 \usepackage{url}
 \usepackage{float}
@@ -17,6 +20,7 @@
 \usepackage{geometry}
 \usepackage{caption}
 \usepackage{placeins}
+\usepackage{setspace} % 行距配置
 % 交由 ctex 自动管理中文字体（避免与 xeCJK 重复设置导致的警告）
 \geometry{a4paper, margin=2cm}
 \usepackage{tabularx}
@@ -47,12 +51,23 @@
 \usepackage{makecell}
 \usepackage{hyperref}
 \usepackage{caption}
+% 图注：11pt（small），中文宋体，且居中
+\DeclareCaptionFont{capCJK}{\songti}
+\captionsetup{font={small,capCJK}, labelfont={small,capCJK}, justification=centering}
+\captionsetup[figure]{font={small,capCJK}, labelfont={small,capCJK}, justification=centering}
+\captionsetup[sub]{font={small,capCJK}, labelfont={small,capCJK}}
+% 参考文献：11pt（small），中文宋体
+\usepackage{etoolbox}
+\AtBeginEnvironment{thebibliography}{\small\songti}
 \renewcommand{\lstlistingname}{代码示例}
 \usepackage{colortbl}
 \usepackage{subcaption}
 \usepackage{longtable}
 \usepackage{sectsty}
-\sectionfont{\centering}
+% 标题样式：大标题（三号，中文黑体，居中）；次标题（小四，中文黑体）
+\sectionfont{\centering\heiti\zihao{3}}
+\subsectionfont{\heiti\zihao{-4}}
+\subsubsectionfont{\heiti\zihao{-4}}
 \usepackage{color}
 \usepackage{tikz}
 \usetikzlibrary{shapes,arrows}
@@ -64,7 +79,8 @@
 \newcommand{\upcite}[1]{\textsuperscript{\textsuperscript{\cite{#1}}}}
 % 页面布局
 \geometry{top=25mm,bottom=25mm,left=25mm,right=25mm}
-\renewcommand*{\baselinestretch}{1.38}
+% 行距：1.5 倍
+\onehalfspacing
 \definecolor{codegreen}{rgb}{0,0.6,0}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
 \definecolor{codepurple}{rgb}{0.58,0,0.82}
@@ -219,6 +235,7 @@ class 1(L2):
 \nocite{*}
 \bibliographystyle{plain}
 \bibliography{cankaowenxian}
+
 
 
 \end{document} 
