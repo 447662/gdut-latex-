@@ -28,5 +28,6 @@ git clone https://github.com/447662/gdut-latex-.git
 
 2. 运行1.tex文件，即可生成论文。
 
-
-
+### 备注
+由于广工于2026年修复了毕设可以用latex的bug——新增了格式检查这一项，不查就不能查重和AIGC，而格式检查只支持Word，不支持pdf。
+所以建议大家搭配latex转Word的AIskills使用。（市面上的latex转Word软件基本上不支持毕设这么复杂的项目）
